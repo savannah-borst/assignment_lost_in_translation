@@ -1,11 +1,12 @@
 import './App.scss';
 import {
   BrowserRouter,
-  Switch,
+  Routes,
   Route,
   Redirect
-} from 'react-router-dom'
-import Start from './components/Start.js'
+} from 'react-router-dom';
+import Start from './components/Start';
+
 
 
 function App() {
@@ -14,9 +15,9 @@ function App() {
       <div className="App">
         <h1>React Translation Page</h1>
       </div>
-      <Switch>
-        <Route path='/' exact component={ Start }/>
-      </Switch>
+      <Routes>
+        <Route path='/' exact element={ <Start/> }/>
+      </Routes>
     </BrowserRouter>
     
   );
