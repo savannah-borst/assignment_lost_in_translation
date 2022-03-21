@@ -1,9 +1,15 @@
-function Login() {
+import InputUsername from '../components/Start/InputUsername'
+import Header from '../components/Header/Header'
+import Intro from '../components/Start/Intro'
+
+function StartView() {
     return(
-        <main className="Login">
-            <h1>Login to Translator</h1>
+        <main className="StartView">
+            <Header/>
+            <Intro/>
+            <InputUsername/>
         </main>
     )
 }
 
-export default Login;
+export default StartView;

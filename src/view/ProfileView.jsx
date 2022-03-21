@@ -1,4 +1,4 @@
-function Profile() {
+function ProfileView() {
     return(
         <main>
             <h1>Profile Page</h1>
@@ -6,4 +6,4 @@ function Profile() {
     )
 }
 
-export default Profile;
+export default ProfileView;

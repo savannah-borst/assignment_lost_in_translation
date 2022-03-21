@@ -1,4 +1,4 @@
-function Translation() {
+function TranslationView() {
     return(
         <main>
             <h1>Translation Page</h1>
@@ -6,4 +6,4 @@ function Translation() {
     )
 }
 
-export default Translation;
+export default TranslationView;
