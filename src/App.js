@@ -15,9 +15,6 @@ import ProfileView from './view/ProfileView';
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
-        <h1>React Translation Page</h1>
-      </div>
       <Routes>
         <Route path='/' exact element={ <StartView/> } />
         <Route path='/translation' element={ <TranslationView/> } />
