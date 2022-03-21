@@ -5,10 +5,10 @@ import {
   Route,
   Redirect
 } from 'react-router-dom';
-import Start from './components/Start/Start';
-import NotFound from './components/NotFound/NotFound';
-import Translation from './components/Translation/Translation';
-import Profile from './components/Profile/Profile';
+import StartView from './view/StartView';
+import NotFoundView from './view/NotFoundView';
+import TranslationView from './view/TranslationView';
+import ProfileView from './view/ProfileView';
 
 
 
@@ -19,10 +19,10 @@ function App() {
         <h1>React Translation Page</h1>
       </div>
       <Routes>
-        <Route path='/' exact element={ <Start/> } />
-        <Route path='/translation' element={ <Translation/> } />
-        <Route path='/profile' element={ <Profile/> } />
-        <Route path='*' element={ <NotFound/> } />
+        <Route path='/' exact element={ <StartView/> } />
+        <Route path='/translation' element={ <TranslationView/> } />
+        <Route path='/profile' element={ <ProfileView/> } />
+        <Route path='*' element={ <NotFoundView/> } />
       </Routes>
     </BrowserRouter>
     
