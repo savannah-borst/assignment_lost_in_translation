@@ -7,7 +7,7 @@ function StartView() {
         <main className="StartView">
             <Header/>
             <Intro/>
-            <InputUsername/>
+            <InputUsername />
         </main>
     )
 }
