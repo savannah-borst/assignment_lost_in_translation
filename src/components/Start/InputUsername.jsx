@@ -74,7 +74,7 @@ function InputUsername() {
               }}
               placeholder="Please enter your name"
               id={user}
-              type="text"
+              type="text" // check value
               onChange={handleChange}
             />
           </CardContent>
