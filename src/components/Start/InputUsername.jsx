@@ -8,19 +8,33 @@ import { Container } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { TextField } from "@mui/material";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
-import useState from "react";
+import { useState } from "react";
+import { useDispatch } from 'react-redux'
+import { loginAttemptAction } from "../../store/actions/loginActions";
 
 function InputUsername() {
-  //const [ user, setUser ] = useState();
 
-    const [name, setName] = React.useState();
-    const handleChange = (event) => {
-        setName(event.target.value);
+    const dispatch = useDispatch()
+
+    const [user, setUser] = useState();
+
+    const handleChange = event => {
+        setUser({
+          ...user,
+          [event.target.id]: event.target.value
+        })
+    }
+
+    const onFormSubmit = event => {
+      event.preventDefault()
+      dispatch(loginAttemptAction(user))
     }
 
   return (
     <Container maxWidth="lg">
       <Box
+        component="form"
+        onSubmit={onFormSubmit}
         sx={{
           display: "flex",
           flexDirection: "row",
@@ -59,7 +73,8 @@ function InputUsername() {
                 ),
               }}
               placeholder="Please enter your name"
-              value={name}
+              id={user}
+              type="text"
               onChange={handleChange}
             />
           </CardContent>
