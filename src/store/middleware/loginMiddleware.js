@@ -1,5 +1,5 @@
 import { LoginAPI } from "../../components/Start/LoginAPI";
-import { ACTION_LOGIN_ATTEMPT, ACTION_LOGIN_FAILED, ACTION_LOGIN_SUCCES, loginFailedAction, loginSuccesAction } from "../actions/loginActions";
+import { ACTION_LOGIN_ATTEMPT, ACTION_LOGIN_SUCCES, loginFailedAction, loginSuccesAction } from "../actions/loginActions";
 
 export const loginMiddleware = ({ dispatch }) => next => action => {
     next(action);
