@@ -1,15 +1,16 @@
-$primary-background-color: #7371FC;
-$secondary-background-color: #5A58F8;
-$third-background-color: #FFFFFF;
-$accent-background-color: #F05365;
-$border-color-one: #CCCCCB;
-$border-color-two: #FFFFFF;
-$main-text-color: #FFFFFF;
+$primary-background-color: #7371fc;
+$secondary-background-color: #5a58f8;
+$third-background-color: #ffffff;
+$accent-background-color: #f05365;
+$border-color-one: #cccccb;
+$border-color-two: #ffffff;
+$main-text-color: #ffffff;
 
 .header {
   background-color: $primary-background-color;
   border-bottom: 4px solid $border-color-one;
-  padding: 1rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
 
   .header-logo {
     width: 80px;
@@ -50,50 +51,88 @@ $main-text-color: #FFFFFF;
 }
 
 .intro {
-    background-color: $primary-background-color;
-    height: 50vh;
-    padding-top: 5rem;
+  background-color: $primary-background-color;
+  height: 50vh;
+  padding-top: 5rem;
 
-    .intro-logo {
-        width: 400px;
-        float: left;
+  .intro-logo {
+    width: 400px;
+    float: left;
+  }
+
+  .intro-content {
+    color: $main-text-color;
+    height: 25vh;
+    padding-left: 5rem;
+
+    .intro-heading {
+      margin: 0;
+      font-size: 50px;
     }
 
-    .intro-content {
-        color: $main-text-color;
-        height: 25vh;
-        padding-left: 5rem;
-
-        .intro-heading {
-            margin: 0;
-            font-size: 50px;
-        }
-
-        .intro-text {
-            font-size: 25px;
-        }
+    .intro-text {
+      font-size: 25px;
     }
+  }
 }
 
 .username-content {
-    background-color: $third-background-color;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
-    border-radius: 50px;
-    position: relative;
+  background-color: $third-background-color;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  width: 100%;
+  position: relative;
 
-    .username-button {
-        border-radius: 100%;
-    }
- 
-    .username-border {
-        background-color: $accent-background-color;
-        height: 20px;
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-        border-radius: 0px 0px 25px 25px;
-    }
+  .username-button {
+    border-radius: 100%;
+  }
+
+  .username-border {
+    background-color: $accent-background-color;
+    height: 20px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-radius: 0px 0px 25px 25px;
+  }
 }
 
+@media screen and (max-width: 1440px) and (min-width: 1024px) {
+  .header .header-logo {
+    width: 60px;
+  }
 
+  .header-content .header-heading {
+    margin-left: 2rem;
+    font-size: 20px;
+  }
 
+  .header .header-content .profile-settings {
+    padding: 5px 20px;
+  }
+
+  .header .header-content .profile-settings .profile-settings-icon {
+    top: -3px;
+    right: 0px;
+  }
+
+  .header .header-content .profile-settings .profile-settings-icon svg {
+    width: 35px;
+    height: 30px;
+  }
+
+  .intro {
+    height: 40vh;
+  }
+
+  .intro .intro-logo {
+    width: 250px;
+  }
+
+  .intro .intro-content .intro-heading {
+    font-size: 40px;
+  }
+  .intro .intro-content .intro-text {
+    font-size: 20px;
+  }
+}

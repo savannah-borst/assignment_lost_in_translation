@@ -20,7 +20,6 @@ function InputUsername() {
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
-          width: "100%",
           p: 2
         }}
       >
