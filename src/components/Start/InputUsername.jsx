@@ -42,7 +42,7 @@ function InputUsername() {
         }}
         autoComplete="off"
       >
-        <Card sx={{ flexGrow: 1 }} className="input-container">
+        <Card sx={{ flexGrow: 1 }} className="card-container">
           <CardContent>
             <TextField
             sx={{
@@ -66,7 +66,7 @@ function InputUsername() {
                 ),
                 endAdornment: (
                   <InputAdornment position="end">
-                    <button className="username-button" type="submit">
+                    <button className="submit-button" type="submit">
                       <ArrowForwardIcon className="button-icon"/>
                     </button>
                   </InputAdornment>
@@ -78,7 +78,7 @@ function InputUsername() {
               onChange={handleChange}
             />
           </CardContent>
-          <div className="input-border"></div>
+          <div className="card-border"></div>
         </Card>
       </Box>
     </Container>

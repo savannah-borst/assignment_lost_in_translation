@@ -5,8 +5,36 @@ $accent-background-color: #f05365;
 $border-color-one: #cccccb;
 $border-color-two: #ffffff;
 $main-text-color: #ffffff;
-$input-background-color: #EAE9E9;
+$input-background-color: #eae9e9;
 
+// Global styles
+.card-container {
+  margin-top: -3rem;
+  padding-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 25px !important;
+
+  .card-border {
+    height: 20px;
+    width: 100%;
+    bottom: 0;
+    background-color: $accent-background-color;
+    position: absolute;
+    border-radius: 0 0 25px 25px;
+  }
+}
+
+.submit-button {
+  border-radius: 100%;
+  height: 40px;
+  color: $main-text-color;
+  width: 40px;
+  background-color: $accent-background-color;
+  border: none;
+}
+
+//Header component
 .header {
   background-color: $primary-background-color;
   border-bottom: 4px solid $border-color-one;
@@ -51,6 +79,7 @@ $input-background-color: #EAE9E9;
   }
 }
 
+//Intro component
 .intro {
   background-color: $primary-background-color;
   height: 50vh;
@@ -77,39 +106,32 @@ $input-background-color: #EAE9E9;
   }
 }
 
-
-.input-container {
-    margin-top: -3rem;
-    padding-bottom: 2rem;
-    position: relative;
-    overflow: hidden;
-    border-radius: 25px !important;
-
-    .input-content {
-        border-radius: 25px;
-        background-color: $input-background-color;
-        border: 3px solid $border-color-one;
-
-        .username-button {
-            border-radius: 100%;
-            height: 40px;
-            color: $main-text-color;
-            width: 40px;
-            background-color: $accent-background-color;
-            border: none;
-        }
-    }
-
-    .input-border {
-        height: 20px;
-        width: 100%;
-        bottom: 0;
-        background-color: $accent-background-color;
-        position: absolute;
-        border-radius: 0 0 25px 25px;
-    }
+//Input translate component
+.input-content {
+  border-radius: 25px;
+  background-color: $input-background-color;
+  border: 3px solid $border-color-one;
 }
 
+.input-translate {
+  background-color: $primary-background-color;
+  height: 15vh;
+  padding-top: 2rem;
+
+  .card-container {
+    margin-top: 0;
+  }
+}
+
+//Output translate component
+.output-translate {
+  height: 20vh;
+  margin-top: 5rem;
+
+  .card-container {
+    margin-top: 0;
+  }
+}
 
 @media screen and (max-width: 1440px) and (min-width: 1024px) {
   .header .header-logo {
