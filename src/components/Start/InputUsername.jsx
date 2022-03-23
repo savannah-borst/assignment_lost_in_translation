@@ -10,7 +10,7 @@ import { TextField } from "@mui/material";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
 import { useState } from "react";
 import { useDispatch } from 'react-redux'
-import { loginAttemptAction } from "../../store/actions/loginActions";
+import { loginAttemptAction } from "../../store/actions/userActions";
 
 function InputUsername() {
 
