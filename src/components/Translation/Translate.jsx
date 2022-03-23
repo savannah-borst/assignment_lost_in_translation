@@ -32,7 +32,7 @@ function InputTranslate() {
     }
 
   return (
-      <div className="input-translate" style={{ width: "100% "}}>
+      <div className="translate" style={{ width: "100% "}}>
           <Container maxWidth="lg">
           <Box  
         component="form"
@@ -82,7 +82,6 @@ function InputTranslate() {
           <div className="card-border"></div>
         </Card>
       </Box>
-
       <Box
       className="output-translate"
         sx={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
