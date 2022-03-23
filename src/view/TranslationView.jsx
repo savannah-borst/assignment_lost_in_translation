@@ -1,13 +1,11 @@
-import InputTranslate from '../components/Translation/InputTranslate';
-import OutputTranslate from '../components/Translation/OutputTranslate';
+import Translate from '../components/Translation/Translate';
 import Header from '../components/Header/Header'
 
 function TranslationView() {
     return(
         <main className="TranslationView">
             <Header/>
-            <InputTranslate />
-            <OutputTranslate />
+            <Translate />
         </main>
     )
 }

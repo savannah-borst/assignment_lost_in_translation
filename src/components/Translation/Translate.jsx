@@ -8,42 +8,35 @@ import { Container } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { TextField } from "@mui/material";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
-import useState  from "react";
+import { useState }  from "react";
 import { useDispatch } from 'react-redux'
 import { loginAttemptAction } from "../../store/actions/loginActions";
 
 function InputTranslate() {
 
-    // const dispatch = useDispatch()
+    const [translation, setTranslation] = useState(' ');
+    const letters = translation.split("");
+    const list = [];
+    console.log(letters)
 
-    // const [count, setCount] = useState(0);
+    letters.forEach((letter) => {
+            list.push(<img src={`./signs/${letter}.png`} alt={letter} /> )
+      })
 
-    // const handleChange = event => {
-    //     setUser({
-    //       ...user,
-    //       [event.target.id]: event.target.value
-    //     })
-    // }
-
-    // const onFormSubmit = event => {
-    //   event.preventDefault()
-    //   dispatch(loginAttemptAction(user))
-    // }
-
-    function saveTranslationToAPI() {
-        
+    const handleTranslation = (e) => {
+        setTranslation(e.target.value);
     }
 
-    function displaySigns() {
-
+    const handle = () => {
+        console.log(translation)
     }
 
   return (
       <div className="input-translate" style={{ width: "100% "}}>
           <Container maxWidth="lg">
-      <Box
+          <Box  
         component="form"
-        //onSubmit={onFormSubmit}
+        //onSubmit={handleTranslation}
         sx={{
           display: "flex",
           flexDirection: "row",
@@ -54,6 +47,9 @@ function InputTranslate() {
         <Card sx={{ flexGrow: 1 }} className="card-container">
           <CardContent>
             <TextField
+            placeholder="Please enter your translation"
+            type="text"
+            onChange={handleTranslation}
             sx={{
                 "& .MuiOutlinedInput-root": {
                     "& > fieldset": {
@@ -75,17 +71,24 @@ function InputTranslate() {
                 ),
                 endAdornment: (
                   <InputAdornment position="end">
-                    <button className="submit-button" type="submit">
+                    <button className="submit-button" onClick={ handle } type="submit">
                       <ArrowForwardIcon className="button-icon"/>
                     </button>
                   </InputAdornment>
                 ),
               }}
-              placeholder="Please enter your translation"
-              //id={user}
-              type="text" // check value
-              //onChange={handleChange}
             />
+          </CardContent>
+          <div className="card-border"></div>
+        </Card>
+      </Box>
+
+      <Box
+      className="output-translate"
+        sx={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
+        <Card sx={{ flexGrow: 1 }} className="card-container">
+          <CardContent>
+              {list}
           </CardContent>
           <div className="card-border"></div>
         </Card>
