@@ -13,21 +13,26 @@ import { useDispatch } from 'react-redux'
 import { loginAttemptAction } from "../../store/actions/loginActions";
 
 function InputTranslate() {
-
+    //with help from https://github.com/El-Maghawry/Lost-In-Translation/tree/lostInTranslation/src
     const [translation, setTranslation] = useState('');
     const letters = translation.split("");
     const list = [];
-    console.log(letters)
+
 
     letters.forEach((letter) => {
-            list.push(<img src={`./signs/${letter}.png`} alt={letter} /> )
+        if (letter === ' ') {
+
+        } else {
+          list.push(<img src={`./signs/${letter}.png`} alt={letter} /> )
+        } 
       })
 
     const handleTranslation = (e) => {
         setTranslation(e.target.value);
     }
 
-    const handle = () => {
+    const handle = event => {
+        event.preventDefault()
         console.log(translation)
     }
 
