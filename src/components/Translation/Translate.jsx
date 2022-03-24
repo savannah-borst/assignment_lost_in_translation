@@ -14,7 +14,7 @@ import { loginAttemptAction } from "../../store/actions/loginActions";
 
 function InputTranslate() {
 
-    const [translation, setTranslation] = useState(' ');
+    const [translation, setTranslation] = useState('');
     const letters = translation.split("");
     const list = [];
     console.log(letters)
