@@ -1,8 +1,13 @@
 //shows up in redux dev tools need clear labels
-export const ACTION_GET_USER = '[user] GET';
+export const ACTION_SET_USER = '[user] SET';
+export const ACTION_LOAD_USER = '[user] LOAD';
 
+export const setUserAction = username => ({
+    type: ACTION_SET_USER,
+    payload: username
+});
 
-export const getUserAction = user => ({
-    type: ACTION_GET_USER,
-    payload: user
+export const loadUserAction = username => ({
+    type: ACTION_LOAD_USER,
+    payload: username
 });

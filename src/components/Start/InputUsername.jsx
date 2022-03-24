@@ -8,26 +8,26 @@ import { Container } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { TextField } from "@mui/material";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
-import { useState } from "react";
-import { useDispatch } from 'react-redux'
-import { loginAttemptAction } from "../../store/actions/userActions";
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { loadUserAction } from "../../store/actions/userActions";
+import { useNavigate } from "react-router-dom";
 
 function InputUsername() {
 
-    const dispatch = useDispatch()
+    const [username, setUsername] = useState();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    const [user, setUser] = useState();
-
-    const handleChange = event => {
-        setUser({
-          ...user,
-          [event.target.id]: event.target.value
-        })
+    const onInputChange = event => {
+        setUsername(event.target.value);
     }
 
     const onFormSubmit = event => {
       event.preventDefault()
-      dispatch(loginAttemptAction(user))
+      //const user = {}
+      dispatch(loadUserAction(username));
+      navigate('/translation');
     }
 
   return (
@@ -73,9 +73,9 @@ function InputUsername() {
                 ),
               }}
               placeholder="Please enter your name"
-              id={user}
+              id={'user'}
               type="text" // check value
-              onChange={handleChange}
+              onChange={onInputChange}
             />
           </CardContent>
           <div className="input-border"></div>
