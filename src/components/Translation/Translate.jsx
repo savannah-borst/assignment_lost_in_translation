@@ -9,11 +9,12 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { TextField } from "@mui/material";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
 import { useState }  from "react";
-import { useDispatch } from 'react-redux'
-import { loginAttemptAction } from "../../store/actions/loginActions";
+import { useDispatch } from 'react-redux';
+import { loadTranslationAction } from "../../store/actions/translationActions";
 
 function InputTranslate() {
     //with help from https://github.com/El-Maghawry/Lost-In-Translation/tree/lostInTranslation/src
+    const dispatch = useDispatch();
     const [translation, setTranslation] = useState('');
     const letters = translation.split("");
     const list = [];
@@ -27,12 +28,13 @@ function InputTranslate() {
         } 
       })
 
-    const handleTranslation = (e) => {
+    const onInputChange = (e) => {
         setTranslation(e.target.value);
     }
 
-    const handle = event => {
+    const onFormSubmit = event => {
         event.preventDefault()
+        dispatch(loadTranslationAction(translation));
         console.log(translation)
     }
 
@@ -41,7 +43,7 @@ function InputTranslate() {
           <Container maxWidth="lg">
           <Box  
         component="form"
-        //onSubmit={handleTranslation}
+        onSubmit={onFormSubmit}
         sx={{
           display: "flex",
           flexDirection: "row",
@@ -54,7 +56,7 @@ function InputTranslate() {
             <TextField
             placeholder="Please enter your translation"
             type="text"
-            onChange={handleTranslation}
+            onChange={onInputChange}
             sx={{
                 "& .MuiOutlinedInput-root": {
                     "& > fieldset": {
@@ -76,7 +78,7 @@ function InputTranslate() {
                 ),
                 endAdornment: (
                   <InputAdornment position="end">
-                    <button className="submit-button" onClick={ handle } type="submit">
+                    <button className="submit-button" type="submit">
                       <ArrowForwardIcon className="button-icon"/>
                     </button>
                   </InputAdornment>
