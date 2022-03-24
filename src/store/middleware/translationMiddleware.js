@@ -1,4 +1,5 @@
-import { ACTION_LOAD_TRANSLATION, setTranslationAction } from "../actions/translationActions";
+import { ACTION_LOAD_TRANSLATION } from "../actions/translationActions";
+import { setUserAction } from "../actions/userActions";
 
 export const translationMiddleware = ({ dispatch }) => next => action => {
     next(action)
@@ -7,14 +8,14 @@ export const translationMiddleware = ({ dispatch }) => next => action => {
     const apiKey = '3ltMwJl2TUqcqMV1pLMF0g==';
     let userTranslations = [];
 
-    fetch(`${apiURL}/translations/${action.payload}`)
+    fetch(`${apiURL}/translations/3`)
     .then(response => response.json())
     .then(result => userTranslations = result.translations)
 
     userTranslations.push(action.payload)
 
     if (action.type === ACTION_LOAD_TRANSLATION) { 
-        fetch(`${apiURL}/translations/${action.payload}`, {
+        fetch(`${apiURL}/translations/3`, {
             method: 'PATCH', // NB: Set method to PATCH
             headers: {
                 'X-API-Key': apiKey,
@@ -33,7 +34,7 @@ export const translationMiddleware = ({ dispatch }) => next => action => {
         })
         .then(updatedUser => {
           // updatedUser is the user with the Patched data
-          return dispatch(setTranslationAction(updatedUser));
+          return dispatch(setUserAction(updatedUser));
         })
         .catch(error => {
         })
