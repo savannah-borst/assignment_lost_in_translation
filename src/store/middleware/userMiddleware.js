@@ -16,7 +16,7 @@ export const userMiddleware = ({ dispatch }) => next => action => {
             if (results.length === 0) {
               return createUser(action.payload);
             } else {
-              return dispatch(setSessionAction(results));
+              return dispatch(setSessionAction(results[0]));
             }
         })
         .catch(error => {
@@ -44,7 +44,7 @@ export const userMiddleware = ({ dispatch }) => next => action => {
         })
         .then(newUser => {
           // newUser is the new user with an id
-          return dispatch(setSessionAction(newUser));
+          return dispatch(setSessionAction(newUser[0]));
         })
         .catch(error => {
         })
