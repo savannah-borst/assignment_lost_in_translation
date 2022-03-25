@@ -10,7 +10,8 @@ import { TextField } from "@mui/material";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
 import { useState }  from "react";
 import { useDispatch } from 'react-redux';
-import { loadTranslationAction } from "../../store/actions/translationActions";
+import { loadTranslationAction, getTranslationUserAction } from "../../store/actions/translationActions";
+
 
 function InputTranslate() {
     //with help from https://github.com/El-Maghawry/Lost-In-Translation/tree/lostInTranslation/src
@@ -18,6 +19,7 @@ function InputTranslate() {
     const [translation, setTranslation] = useState('');
     const letters = translation.split("");
     const list = [];
+    
 
 
     letters.forEach((letter) => {
@@ -35,7 +37,6 @@ function InputTranslate() {
     const onFormSubmit = event => {
         event.preventDefault()
         dispatch(loadTranslationAction(translation));
-        console.log(translation)
     }
 
   return (

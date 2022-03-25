@@ -12,7 +12,6 @@ export const userMiddleware = ({ dispatch }) => next => action => {
         .then(response => response.json())
         .then(results => {
             // results will be an array of users that match the username of victor.
-            console.log(results)
             if (results.length === 0) {
               return createUser(action.payload);
             } else {
