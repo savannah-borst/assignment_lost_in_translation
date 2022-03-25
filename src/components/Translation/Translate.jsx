@@ -17,6 +17,7 @@ function InputTranslate() {
     //with help from https://github.com/El-Maghawry/Lost-In-Translation/tree/lostInTranslation/src
     const dispatch = useDispatch();
     const [translation, setTranslation] = useState('');
+    const [showSigns, setShowSigns] = useState(false);
     const letters = translation.split("");
     const list = [];
     
@@ -31,11 +32,13 @@ function InputTranslate() {
       })
 
     const onInputChange = (e) => {
+        setShowSigns(state =>  false);
         setTranslation(e.target.value);
     }
 
     const onFormSubmit = event => {
         event.preventDefault()
+        setShowSigns(state => true);
         dispatch(loadTranslationAction(translation));
     }
 
@@ -95,7 +98,11 @@ function InputTranslate() {
         sx={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
         <Card sx={{ flexGrow: 1 }} className="card-container">
           <CardContent>
+            { showSigns && 
+            <div>
               {list}
+              </div>
+              }
           </CardContent>
           <div className="card-border"></div>
         </Card>
