@@ -5,6 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './store/store';
+import {initSessionAction} from './store/actions/sessionActions'
+
+store.dispatch(initSessionAction())
 
 ReactDOM.render(
   <React.StrictMode>

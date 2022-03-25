@@ -8,10 +8,10 @@ import { Container } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { TextField } from "@mui/material";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { loadUserAction } from "../../store/actions/userActions";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 
 function InputUsername() {
 
@@ -19,19 +19,21 @@ function InputUsername() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const { loggedIn } = useSelector(state => state.session)
+
     const onInputChange = event => {
         setUsername(event.target.value);
     }
 
     const onFormSubmit = event => {
       event.preventDefault()
-      //const user = {}
       dispatch(loadUserAction(username));
       navigate('/translation');
     }
 
   return (
     <Container maxWidth="lg">
+   {loggedIn && <Navigate to="/translation" />}
       <Box
         component="form"
         onSubmit={onFormSubmit}
