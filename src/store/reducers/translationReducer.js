@@ -1,4 +1,4 @@
-import { ACTION_LOAD_TRANSLATION, ACTION_SET_TRANSLATION } from "../actions/translationActions";
+import { ACTION_LOAD_TRANSLATION} from "../actions/translationActions";
 
 const initialState = {
     translation: []

@@ -1,4 +1,4 @@
-import { ACTION_LOAD_TRANSLATION, setTranslationAction } from "../actions/translationActions";
+import { ACTION_LOAD_TRANSLATION } from "../actions/translationActions";
 import { setUserAction } from "../actions/userActions";
 import store from '../store'
 
