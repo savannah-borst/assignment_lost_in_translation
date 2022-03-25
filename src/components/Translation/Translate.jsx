@@ -10,7 +10,7 @@ import { TextField } from "@mui/material";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
 import { useState }  from "react";
 import { useDispatch } from 'react-redux';
-import { loadTranslationAction, getTranslationUserAction } from "../../store/actions/translationActions";
+import { loadTranslationAction } from "../../store/actions/translationActions";
 
 
 function InputTranslate() {
@@ -22,12 +22,19 @@ function InputTranslate() {
     const list = [];
     
 
+    for (let i = 0; i < letters.length; i++) {
+      if (letters[i] === ' '){
+
+      } else {
+        list.push(<img key={i} src={`./signs/${letters[i]}.png`} alt={letters[i]} />)
+      }
+    }
 
     letters.forEach((letter) => {
         if (letter === ' ') {
 
         } else {
-          list.push(<img src={`./signs/${letter}.png`} alt={letter} /> )
+          list.push(<img key={letter} src={`./signs/${letter}.png`} alt={letter} /> )
         } 
       })
 

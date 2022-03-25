@@ -18,8 +18,8 @@ export const sessionMiddleware = ({ dispatch }) => next => action => {
     }
 
     if (action.type === ACTION_SET_SESSION)  {
-        localStorage.setItem("session", JSON.stringify(action.payload));
         dispatch(setUserAction(action.payload))
+        localStorage.setItem("session", JSON.stringify(action.payload));
     }
 
     if (action.type === ACTION_CLEAR_SESSION) {

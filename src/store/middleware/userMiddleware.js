@@ -1,5 +1,5 @@
 import { setSessionAction } from "../actions/sessionActions";
-import { ACTION_LOAD_USER, setUserAction } from "../actions/userActions";
+import { ACTION_LOAD_USER } from "../actions/userActions";
 
 export const userMiddleware = ({ dispatch }) => next => action => {
     next(action)
@@ -16,8 +16,7 @@ export const userMiddleware = ({ dispatch }) => next => action => {
             if (results.length === 0) {
               return createUser(action.payload);
             } else {
-              dispatch(setSessionAction(results));
-              return dispatch(setUserAction(results));
+              return dispatch(setSessionAction(results));
             }
         })
         .catch(error => {
@@ -45,8 +44,7 @@ export const userMiddleware = ({ dispatch }) => next => action => {
         })
         .then(newUser => {
           // newUser is the new user with an id
-          dispatch(setSessionAction(newUser));
-          return dispatch(setUserAction(newUser));
+          return dispatch(setSessionAction(newUser));
         })
         .catch(error => {
         })
