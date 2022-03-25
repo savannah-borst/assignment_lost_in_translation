@@ -21,8 +21,6 @@ function InputUsername() {
 
     const { loggedIn } = useSelector(state => state.session)
 
-     console.log(loggedIn);
-
     const onInputChange = event => {
         setUsername(event.target.value);
     }
