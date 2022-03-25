@@ -24,7 +24,8 @@ export const translationMiddleware = ({ dispatch }) => next => action => {
     //set translation in API
     function setTranslation() {
 
-      userTranslations.push(action.payload)
+      //add to beginning of array.
+      userTranslations.unshift(action.payload)
 
       fetch(`${apiURL}/translations/${user.user[0].id}`, {
         method: 'PATCH', // NB: Set method to PATCH
