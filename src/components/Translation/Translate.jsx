@@ -10,7 +10,7 @@ import { TextField } from "@mui/material";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
 import { useState }  from "react";
 import { useDispatch } from 'react-redux';
-import { loadTranslationAction, getTranslationUserAction } from "../../store/actions/translationActions";
+import { loadTranslationAction } from "../../store/actions/translationActions";
 
 
 function InputTranslate() {
