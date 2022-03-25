@@ -13,7 +13,7 @@ export const translationMiddleware = ({ dispatch }) => next => action => {
 
     if (action.type === ACTION_LOAD_TRANSLATION) { 
       
-    fetch(`${apiURL}/translations/${user.user[0].id}`)
+    fetch(`${apiURL}/translations/${user.user.id}`)
     .then(response => response.json())
     .then(result => {
       userTranslations = result.translations
@@ -27,7 +27,7 @@ export const translationMiddleware = ({ dispatch }) => next => action => {
       //add to beginning of array.
       userTranslations.unshift(action.payload)
 
-      fetch(`${apiURL}/translations/${user.user[0].id}`, {
+      fetch(`${apiURL}/translations/${user.user.id}`, {
         method: 'PATCH', // NB: Set method to PATCH
         headers: {
             'X-API-Key': apiKey,
@@ -54,7 +54,7 @@ export const translationMiddleware = ({ dispatch }) => next => action => {
 
 
   if (action.type === ACTION_TRANSLATE_CLEAR){
-      fetch(`${apiURL}/translations/${user.user[0].id}`, {
+      fetch(`${apiURL}/translations/${user.user.id}`, {
         method: 'PATCH', // NB: Set method to PATCH
         headers: {
             'X-API-Key': apiKey,

@@ -2,14 +2,16 @@ import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { Box, Container, Button } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { clearTranslation } from "../../store/actions/translationActions";
 
 function History() {
-  const user = useSelector((state) => state.session[0]);
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   let historyArray = []
    
 
-    for (let i = 0; i < user.translations.length; i++) {
+    for (let i = 0; i < user.translations.length && i < 10; i++) {
             historyArray.push({id: i, name: user.translations[i]})
   }
 
@@ -17,10 +19,15 @@ function History() {
     <CardContent key={historyArray.id}>{historyArray.name}</CardContent>
  ));
 
+ const deleteTranslations = event => {
+  event.preventDefault()
+  dispatch(clearTranslation());
+}
+
   return (
     <div className="history" style={{ width: "100% " }}>
       <Container maxWidth="lg">
-      <Button variant="contained" className="normal-button" type="submit">Delete translations</Button>
+      <Button variant="contained" className="normal-button" type="submit" onClick={deleteTranslations}>Delete translations</Button>
             <Box
               sx={{
                 display: "flex",

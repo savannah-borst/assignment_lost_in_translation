@@ -30,14 +30,6 @@ function InputTranslate() {
       }
     }
 
-    letters.forEach((letter) => {
-        if (letter === ' ') {
-
-        } else {
-          list.push(<img key={letter} src={`./signs/${letter}.png`} alt={letter} /> )
-        } 
-      })
-
     const onInputChange = (e) => {
         setShowSigns(state =>  false);
         setTranslation(e.target.value);

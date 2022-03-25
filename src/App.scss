@@ -34,6 +34,15 @@ $input-background-color: #eae9e9;
   border: none;
 }
 
+.normal-button {
+  background-color: $accent-background-color;
+}
+
+.header-heading {
+  margin-left: 2rem;
+  color: #FFF;
+}
+
 //Header component
 .header {
   background-color: $primary-background-color;
@@ -49,17 +58,14 @@ $input-background-color: #eae9e9;
   .header-content {
     color: $main-text-color;
 
-    .header-heading {
-      margin-left: 2rem;
-    }
-
     .profile-settings {
       background-color: $secondary-background-color;
       height: 20px;
       position: relative;
       padding: 10px 30px;
       border-radius: 25px;
-      margin-top: 15px;
+      color: #FFF;
+      margin-right: 50px;
 
       .profile-settings-icon {
         position: absolute;
