@@ -1,10 +1,11 @@
-import { ACTION_SESSION_INIT, ACTION_SESSION_SET, ACTION_SESSION_CLEAR,  sessionSetAction } from "../actions/sessionActions";
+import {ACTION_INIT_SESSION, ACTION_SET_SESSION, setSessionAction, ACTION_CLEAR_SESSION} from '../actions/sessionActions'
 
-export const sessionMiddleware = ({dispatch}) => next => action => {
-    next(action);
 
-    if (action.type === ACTION_SESSION_INIT) {
-        const storedSession = localStorage.getItem("start-session");
+export const sessionMiddleware = ({ dispatch }) => next => action => {
+    next(action)
+
+    if (action.type === ACTION_INIT_SESSION) {
+        const storedSession = localStorage.getItem("session");
 
         if (!storedSession) {
             return;
@@ -12,16 +13,15 @@ export const sessionMiddleware = ({dispatch}) => next => action => {
 
         const session = JSON.parse(storedSession);
 
-        dispatch(sessionSetAction(session));
+        dispatch(setSessionAction(session));
     }
 
-
-
-    if(action.type === ACTION_SESSION_SET) {
-        localStorage.setItem("start-session", JSON.stringify(action.payload))
+    if (action.type === ACTION_SET_SESSION)  {
+        localStorage.setItem("session", JSON.stringify(action.payload));
     }
 
-    if (action.type === ACTION_SESSION_CLEAR) {
-        localStorage.removeItem("start-session");
+    if (action.type === ACTION_CLEAR_SESSION) {
+        localStorage.removeItem("session");
     }
+
 }

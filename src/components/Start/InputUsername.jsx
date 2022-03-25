@@ -35,7 +35,7 @@ function InputUsername() {
 
   return (
     <Container maxWidth="lg">
-      {loggedIn && <Navigate to="/translation" />}
+   {loggedIn && <Navigate to="/translation" />}
       <Box
         component="form"
         onSubmit={onFormSubmit}

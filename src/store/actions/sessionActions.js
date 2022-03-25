@@ -1,16 +1,16 @@
-export const ACTION_SESSION_SET = "[session] SET"
-export const ACTION_SESSION_INIT = "[session] INIT"
-export const ACTION_SESSION_CLEAR = "[session] CLEAR"
+export const ACTION_SET_SESSION = '[session] SET';
+export const ACTION_INIT_SESSION = '[session] INIT';
+export const ACTION_CLEAR_SESSION = '[session] INIT';
 
-export const sessionSetAction = (session) => ({
-    type: ACTION_SESSION_SET,
+export const setSessionAction = session => ({
+    type: ACTION_SET_SESSION,
     payload: session
 });
 
-export const sessionInitAction = () => ({
-    type: ACTION_SESSION_INIT
+export const initSessionAction = session => ({
+    type: ACTION_INIT_SESSION,
 });
 
-export const sessionClearAction = () => ({
-    type: ACTION_SESSION_CLEAR
+export const clearSessionAction = () => ({
+    type: ACTION_CLEAR_SESSION
 });

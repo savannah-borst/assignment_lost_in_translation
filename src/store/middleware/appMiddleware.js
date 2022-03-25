@@ -1,6 +1,9 @@
 import { userMiddleware } from "./userMiddleware";
-import { sessionMiddleware } from "./sessionMiddleware";
 import { translationMiddleware } from "./translationMiddleware";
 import { applyMiddleware } from 'redux'
+import { sessionMiddleware } from "./sessionMiddleware";
 
-export default applyMiddleware(userMiddleware, sessionMiddleware, translationMiddleware)
+export default applyMiddleware(
+    userMiddleware, 
+    sessionMiddleware,
+    translationMiddleware)

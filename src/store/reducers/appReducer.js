@@ -1,12 +1,10 @@
 import { userReducer } from './userReducer';
-import { sessionReducer } from './sessionReducer';
 import { translationReducer } from './translationReducer';
 import { combineReducers } from 'redux';
+import { sessionReducer } from './sessionReducer';
 
 const appReducer = combineReducers(
-    {user: userReducer},
-    {translation: translationReducer},
-    {session: sessionReducer}
+    {user: userReducer, session: sessionReducer, translation: translationReducer}
 );
 
 export default appReducer;
