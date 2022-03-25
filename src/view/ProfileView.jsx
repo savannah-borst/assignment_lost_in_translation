@@ -1,7 +1,11 @@
+import History from '../components/Profile/History'
+import Header from '../components/Header/Header'
+
 function ProfileView() {
     return(
-        <main>
-            <h1>Profile Page</h1>
+        <main className="ProfileView">
+            <Header />
+            <History />
         </main>
     )
 }

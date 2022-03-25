@@ -1,10 +1,13 @@
+import { useSelector } from "react-redux";
+
 const apiURL = 'https://seb-noroff-api.herokuapp.com/';
 const apiKey = '3ltMwJl2TUqcqMV1pLMF0g==';
 
 
 export const LoginAPI = {
-    login(username) {
-        return fetch(`${apiURL}/translations?username=${username}`)
+
+  login(username) {
+    return fetch(`${apiURL}/translations?username=${username}`)
         .then(response => response.json())
         .then(results => {
             // results will be an array of users that match the username of victor.

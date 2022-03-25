@@ -24,14 +24,23 @@ $input-background-color: #eae9e9;
     border-radius: 0 0 25px 25px;
   }
 }
-
 .submit-button {
   border-radius: 100%;
   height: 40px;
+  cursor: pointer;
   color: $main-text-color;
   width: 40px;
   background-color: $accent-background-color;
   border: none;
+}
+
+.normal-button {
+  background-color: $accent-background-color;
+}
+
+.header-heading {
+  margin-left: 2rem;
+  color: #FFF;
 }
 
 //Header component
@@ -49,26 +58,22 @@ $input-background-color: #eae9e9;
   .header-content {
     color: $main-text-color;
 
-    .header-heading {
-      margin-left: 2rem;
-    }
-
     .profile-settings {
       background-color: $secondary-background-color;
       height: 20px;
-      width: 80px;
       position: relative;
-      padding: 10px 20px;
+      padding: 10px 30px;
       border-radius: 25px;
-      margin-top: 15px;
+      color: #FFF;
+      margin-right: 50px;
 
       .profile-settings-icon {
         position: absolute;
         background-color: $secondary-background-color;
         border-radius: 50px;
         border: 2px solid $border-color-two;
-        top: -5px;
-        right: -15px;
+        top: -6px;
+        right: -30px;
 
         svg {
           width: 50px;
@@ -128,6 +133,16 @@ $input-background-color: #eae9e9;
   margin-top: 10rem;
 }
 
+.history {
+  background-color: $primary-background-color;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  .card-container {
+    margin-top: 0;
+  }
+}
+
 @media screen and (max-width: 1440px) and (min-width: 1024px) {
   .header .header-logo {
     width: 60px;
@@ -144,7 +159,7 @@ $input-background-color: #eae9e9;
 
   .header .header-content .profile-settings .profile-settings-icon {
     top: -3px;
-    right: 0px;
+    right: -24px;
   }
 
   .header .header-content .profile-settings .profile-settings-icon svg {

@@ -12,30 +12,33 @@ import { useState }  from "react";
 import { useDispatch } from 'react-redux';
 import { loadTranslationAction } from "../../store/actions/translationActions";
 
+
 function InputTranslate() {
     //with help from https://github.com/El-Maghawry/Lost-In-Translation/tree/lostInTranslation/src
     const dispatch = useDispatch();
     const [translation, setTranslation] = useState('');
+    const [showSigns, setShowSigns] = useState(false);
     const letters = translation.split("");
     const list = [];
+    
 
+    for (let i = 0; i < letters.length; i++) {
+      if (letters[i] === ' '){
 
-    letters.forEach((letter) => {
-        if (letter === ' ') {
-
-        } else {
-          list.push(<img src={`./signs/${letter}.png`} alt={letter} /> )
-        } 
-      })
+      } else {
+        list.push(<img key={i} src={`./signs/${letters[i]}.png`} alt={letters[i]} />)
+      }
+    }
 
     const onInputChange = (e) => {
+        setShowSigns(state =>  false);
         setTranslation(e.target.value);
     }
 
     const onFormSubmit = event => {
         event.preventDefault()
+        setShowSigns(state => true);
         dispatch(loadTranslationAction(translation));
-        console.log(translation)
     }
 
   return (
@@ -94,7 +97,11 @@ function InputTranslate() {
         sx={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
         <Card sx={{ flexGrow: 1 }} className="card-container">
           <CardContent>
+            { showSigns && 
+            <div>
               {list}
+              </div>
+              }
           </CardContent>
           <div className="card-border"></div>
         </Card>

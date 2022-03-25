@@ -1,5 +1,5 @@
 import { setSessionAction } from "../actions/sessionActions";
-import { ACTION_LOAD_USER, setUserAction } from "../actions/userActions";
+import { ACTION_LOAD_USER } from "../actions/userActions";
 
 export const userMiddleware = ({ dispatch }) => next => action => {
     next(action)
@@ -13,12 +13,10 @@ export const userMiddleware = ({ dispatch }) => next => action => {
         .then(response => response.json())
         .then(results => {
             // results will be an array of users that match the username of victor.
-            console.log(results)
             if (results.length === 0) {
               return createUser(action.payload);
             } else {
-              dispatch(setSessionAction(results));
-              return dispatch(setUserAction(results));
+              return dispatch(setSessionAction(results[0]));
             }
         })
         .catch(error => {
@@ -46,8 +44,7 @@ export const userMiddleware = ({ dispatch }) => next => action => {
         })
         .then(newUser => {
           // newUser is the new user with an id
-          dispatch(setSessionAction(newUser));
-          return dispatch(setUserAction(newUser));
+          return dispatch(setSessionAction(newUser[0]));
         })
         .catch(error => {
         })
