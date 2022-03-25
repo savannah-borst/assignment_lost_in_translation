@@ -1,16 +1,14 @@
 import PersonIcon from "@mui/icons-material/Person"
-import { useDispatch, useSelector } from 'react-redux';
-import store from '../../store/store';
+import { useSelector } from 'react-redux';
 
 function ProfileSettings() {
-  const { user } = useSelector(state => state.user)
-  const { loggedIn } = useSelector(state => state.session)
+  const { username, loggedIn } = useSelector(state => state.session)
 
   return (
     <>
     {loggedIn &&
     <div className="profile-settings">
-      {user.username}
+      {username}
       <span className="profile-settings-icon">
         <PersonIcon />
       </span>
