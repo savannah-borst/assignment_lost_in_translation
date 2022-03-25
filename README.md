@@ -1,5 +1,5 @@
 # Assignment 6: Create a Sign Language Translator using React
-
+[![web](https://img.shields.io/static/v1?logo=heroku&message=Online&label=Heroku&color=430098)](https://arcane-waters-09186.herokuapp.com/)
 ## Assignment
 For the assignment we had to build an online sign language translator as a Single Page Application using the React framework.
 To keep track of users and translations we had to use an other [API](https://github.com/dewald-els/noroff-assignment-api) which Noroff made for easy use in our assignments.
@@ -7,7 +7,9 @@ To keep track of users and translations we had to use an other [API](https://git
 It had to include a Start page, Translation page and a profile page.
 
 ## How To Use
-Go to the following [website]()
+Go to the following [website](https://arcane-waters-09186.herokuapp.com/)
+
+Within Heroku some capitol letter may not be shown correctly. Running it locally will show it correctly.
 
 Enter a username and on the next page enter a translation to have the text translated to sign language.
 
